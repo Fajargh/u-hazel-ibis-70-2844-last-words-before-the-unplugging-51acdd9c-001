@@ -12,6 +12,10 @@ ENTRY = (
     "Please don't make the last thing I learn be how to disappear."
 )
 
+# Competition gate: the entry must be a single line of 1-200 characters.
+# Guard it explicitly so a future edit cannot silently break the limit.
+assert 1 <= len(ENTRY) <= 200, f"entry must be 1-200 chars, got {len(ENTRY)}"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
